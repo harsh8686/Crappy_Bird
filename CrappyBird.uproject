@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.10",
+	"Category": "Samples",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "CrappyBird",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"Paper2D"
+			]
+		}
+	],
+	"TargetPlatforms": [
+		"Android",
+		"IOS",
+		"MacNoEditor",
+		"WindowsNoEditor",
+		"HTML5"
+	],
+	"EpicSampleNameHash": "3204884328"
+}
