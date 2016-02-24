@@ -23,14 +23,14 @@ protected:
     void OnHitByBullet();
     void OnHitByBird();
     void ChangeAnimation();
-    Boolean IsCloserToBird();
+    bool IsCloserToBird();
     int32 i;
     
     virtual void Tick(float DeltaSeconds) override;
 
 public:
     
-    Boolean BIsActive;
+    bool BIsActive;
     AHumanCharacter();
     void InitializeGameValues();
     
