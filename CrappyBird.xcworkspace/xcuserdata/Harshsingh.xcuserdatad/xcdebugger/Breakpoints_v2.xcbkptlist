@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/HumanCharacter.cpp"
+            timestampString = "479237950.235485"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "AHumanCharacter::AHumanCharacter()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/HumanCharacter.h"
+            timestampString = "479326998.125872"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::BeginPlay()"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.064528"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::BeginPlay()"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.064738"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "442">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::BeginPlay()"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.065006"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "625">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::BeginPlay()"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.065308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "808">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AHumanCharacter* CastChecked&lt;AHumanCharacter, AActor&gt;(AActor*, ECastCheckedType::Type)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.065652"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AHumanCharacter* CastChecked&lt;AHumanCharacter, AActor&gt;(AActor*, ECastCheckedType::Type)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.065944"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AHumanCharacter* CastChecked&lt;AHumanCharacter, AActor&gt;(AActor*, ECastCheckedType::Type)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.066363"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "191">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AHumanCharacter::_getUObject() const"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.066696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to AHumanCharacter::_getUObject() const"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.067038"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AHumanCharacter::execOnBeginOverlap(FFrame&amp;, void*)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.067378"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void InternalConstructor&lt;AHumanCharacter&gt;(FObjectInitializer const&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.067703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "7">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void InternalConstructor&lt;AHumanCharacter&gt;(FObjectInitializer const&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.068039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UObject* InternalVTableHelperCtorCaller&lt;AHumanCharacter&gt;(FVTableHelper&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.068383"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UObject* InternalVTableHelperCtorCaller&lt;AHumanCharacter&gt;(FVTableHelper&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/HumanCharacter.h"
+                  timestampString = "479327291.068786"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
