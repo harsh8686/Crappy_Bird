@@ -14,31 +14,46 @@ class CRAPPYBIRD_API AHumanCharacter : public APaperCharacter
 	GENERATED_BODY()
     
 protected:
+    /*
+     *VARIABLES
+     */
+    
+    bool bIsActive;
+    bool bMoveTowardsHell;
+    bool bIsConcious;
+    
+    float speedMultiplyer;
+    float previousSpeedMultiplyer;
+    
     class UPaperFlipbook* MovingAnimation;
     class UPaperFlipbook* BulletHitAnimation;
     class UStaticMeshComponent *Bird;
     
-    void ChangeDirection();
-    void ChangeSpeed();
+    /*
+     *FUNCTIONS
+     */
     void OnHitByBullet();
     void OnHitByBird();
-    void ChangeAnimation();
     bool IsCloserToBird();
-    int32 i;
-    
     virtual void Tick(float DeltaSeconds) override;
-
+    
 public:
-    
-    bool BIsActive;
+    UFUNCTION()
+    virtual void OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
+                                bool bFromSweep, const FHitResult& SweepResult);
     AHumanCharacter();
-    void InitializeGameValues();
-    
+    void InitializeGameValues(const TCHAR* refMovingAni, const TCHAR* refBulletHitAni);
     UFUNCTION(BlueprintCallable, Category = "Human")
     void SetBird(class UStaticMeshComponent *Bird);
-    //class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult
-    UFUNCTION()
-    void OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
-                        bool bFromSweep, const FHitResult& SweepResult);
+    void ActivateAndReInitChar(class UStaticMeshComponent* BirdStaticMeshComponent);
+    
+    template <typename ObjClass>
+    FORCEINLINE ObjClass* LoadObjFromPath(const FName& Path)
+    {
+        if(Path == NAME_None) return NULL;
+        //~
+        
+        return Cast<ObjClass>(StaticLoadObject( ObjClass::StaticClass(), NULL,*Path.ToString()));
+    }
     
 };
