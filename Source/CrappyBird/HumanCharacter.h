@@ -36,6 +36,7 @@ protected:
     void OnHitByBird();
     bool IsCloserToBird();
     virtual void Tick(float DeltaSeconds) override;
+    void DeactivateAndHideChar();
     
 public:
     UFUNCTION()

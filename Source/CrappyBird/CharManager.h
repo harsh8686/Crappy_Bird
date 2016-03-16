@@ -14,6 +14,7 @@ class CRAPPYBIRD_API ACharManager : public AActor
     //Private variable
     TArray<AHumanCharacter*> InActiveCharacters;
     TArray<AHumanCharacter*> ActiveCharacters;
+    bool bHasGameStarted;
     class UStaticMeshComponent *Bird;
     
 public:	
@@ -31,7 +32,13 @@ public:
 	
     AHumanCharacter* GetCharacter();
 
-    UFUNCTION(BlueprintCallable, Category = "Human")
+    UFUNCTION(BlueprintCallable, Category = "CharManager")
     void SetBird_01(class UStaticMeshComponent *Bird);
+    
+    UFUNCTION(BlueprintCallable, Category = "CharManager")
+    void StartGame();
+    
+    UFUNCTION(BlueprintCallable, Category = "CharManager")
+    void StopGame();
 	
 };

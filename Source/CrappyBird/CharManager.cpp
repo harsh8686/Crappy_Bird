@@ -49,9 +49,18 @@ void ACharManager::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
     
-    if(ActiveCharacters.Num() < 2){
-        SpawnCharacterToStage();
-        UE_LOG(HarshLog, Warning, TEXT("Number of ACtive Character on stage %d"), ActiveCharacters.Num());
+    if(bHasGameStarted){
+        if(ActiveCharacters.Num() < 2){
+            SpawnCharacterToStage();
+        }
+    }else{
+        for (auto Iter(ActiveCharacters.CreateIterator()); Iter; Iter++) {
+            if(!(*Iter)->IsValidLowLevel()){
+                continue;
+            }else{
+                //UE_LOG(HarshLog, Warning, TEXT("IMP: Deactivate char with name: %s"), *(*Iter)->GetName());
+            }
+        }
     }
     /*
     for (auto Iter(characters.CreateIterator()); Iter; Iter++) {
@@ -80,5 +89,15 @@ void ACharManager::SetBird_01(class UStaticMeshComponent* BirdStaticMeshComponen
 AHumanCharacter* ACharManager::GetCharacter(){
     
     return InActiveCharacters.Num()>0 ? InActiveCharacters.Pop(): nullptr;
+    
+}
+
+void ACharManager::StartGame(){
+    bHasGameStarted = true;
+    
+}
+
+void ACharManager::StopGame(){
+    bHasGameStarted = false;
     
 }
