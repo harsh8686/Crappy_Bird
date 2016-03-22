@@ -28,6 +28,7 @@ protected:
     class UPaperFlipbook* MovingAnimation;
     class UPaperFlipbook* BulletHitAnimation;
     class UStaticMeshComponent *Bird;
+    UStaticMeshComponent* MeshComp;
     
     /*
      *FUNCTIONS
@@ -54,7 +55,7 @@ public:
         if(Path == NAME_None) return NULL;
         //~
         
-        return Cast<ObjClass>(StaticLoadObject( ObjClass::StaticClass(), NULL,*Path.ToString()));
+        return Cast<ObjClass>(StaticLoadObject( ObjClass::StaticClass(), this,*Path.ToString()));
     }
     
 };

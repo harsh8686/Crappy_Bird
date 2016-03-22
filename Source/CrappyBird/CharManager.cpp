@@ -28,7 +28,7 @@ void ACharManager::BeginPlay()
                                       TEXT("/Game/Import/Flipbook/Jeb.Jeb"));
         
         AHumanCharacter* char_03 = GetWorld()->SpawnActor<AHumanCharacter>();
-        char_03->InitializeGameValues(TEXT("/Game/Import/Flipbook/Jhon_K.Jhon_K"),
+        char_03->InitializeGameValues(TEXT("/Game/Import/Flipbook/John_K.John_K"),
                                       TEXT("/Game/Import/Flipbook/Nope.Nope"));
         
         AHumanCharacter* char_04 = GetWorld()->SpawnActor<AHumanCharacter>();

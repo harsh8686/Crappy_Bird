@@ -69,7 +69,7 @@ void AHumanCharacter::DeactivateAndHideChar(){
     bMoveTowardsHell = false;
     bIsActive = false;
     SetActorHiddenInGame(true);
-
+    
 }
 
 void AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* BirdStaticMeshComponent){
@@ -92,10 +92,7 @@ void AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* BirdStat
     
     this->Bird = BirdStaticMeshComponent;
     
-    
-    UE_LOG(HarshLog, Warning, TEXT("BIRD SPAWN: rand num: %f"), rand);
-    UE_LOG(HarshLog, Warning, TEXT("BIRD SPAWN: ySpawn num: %f"), ySpawn);
-    UE_LOG(HarshLog, Warning, TEXT("BIRD SPAWN: location: %s"), *GetActorLocation().ToString());
+    OnHitByBullet();
 }
 
 void AHumanCharacter::Tick(float DeltaSeconds){
@@ -143,6 +140,11 @@ void AHumanCharacter::Tick(float DeltaSeconds){
         
     }
     
+    if(MeshComp){
+        //MeshComp
+        UE_LOG(HarshLog, Warning, TEXT("Mesh Comp Position: %s"), *MeshComp->GetComponentLocation().ToString());
+    }
+    
    
 
 }
@@ -163,10 +165,50 @@ void AHumanCharacter::OnBeginOverlap(class AActor* OtherActor, class UPrimitiveC
 }
 
 void AHumanCharacter::OnHitByBird(){
-    GetSprite()->SetFlipbook(BulletHitAnimation);
+    //GetSprite()->SetFlipbook(BulletHitAnimation);
 }
 
 void AHumanCharacter::OnHitByBullet() {
+    
+    //trying with static mesh
+    
+     UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
+    if(MeshShape){
+        UE_LOG(HarshLog, Warning, TEXT("MESH SETUP----------------------"));
+        
+    }
+    
+    UPaperSprite * shitSprite = LoadObjFromPath<UPaperSprite>(TEXT("/Game/Import/Textures/Shittteeeee/Splatt_01_Sprite.Splatt_01_Sprite"));
+    
+    //meshcomp declaration
+    MeshComp = NewObject<UStaticMeshComponent>(this);
+    MeshComp->SetStaticMesh(MeshShape);
+    
+    //Setup material
+    const TCHAR* refMaterial = TEXT("/Game/Meshes/SM_Player_01.SM_Player_01");
+    UMaterial * mat_01 =LoadObjFromPath<UMaterial>(refMaterial);
+    UMaterialInstanceDynamic* myDynamicMaterial = UMaterialInstanceDynamic::Create(mat_01, this);
+    //MeshComp->SetMaterial(0, myDynamicMaterial);
+    
+    
+    //setup collision
+    MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    MeshComp->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
+    MeshComp->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+    
+    //Setup location
+    FTransform refTrans = MeshComp->GetRelativeTransform();
+    refTrans.SetLocation(FVector(0.0f,0.0f,400.0f));
+    refTrans.SetRotation(FQuat(FRotator(0.0f, -90.0f, 0.0f)));
+    MeshComp->SetRelativeTransform(refTrans);
+    
+    //other stuffs
+    //MeshComp->AttachTo(this->GetRootComponent(),FName(TEXT("WeaponPoint")), EAttachLocation::KeepRelativeOffset);
+//    shitSprite
+    
+    MeshComp->RegisterComponent();
+    FVector socketLoaction = GetRootComponent()->GetSocketLocation("WeaponPoint");
+    UE_LOG(HarshLog, Warning, TEXT("Socket Location [Weapon Point]: %s"), *socketLoaction.ToString());
     
 }
 
