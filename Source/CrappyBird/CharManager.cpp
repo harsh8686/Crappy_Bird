@@ -39,7 +39,10 @@ void ACharManager::BeginPlay()
         InActiveCharacters.Add(char_01);
         InActiveCharacters.Add(char_02);
         InActiveCharacters.Add(char_03);
-        InActiveCharacters.Add(char_04);
+        //InActiveCharacters.Add(char_04);
+        
+        ActiveCharacters.Add(char_04);
+        
     }
 	
 }
@@ -48,56 +51,85 @@ void ACharManager::BeginPlay()
 void ACharManager::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
-    
-    if(bHasGameStarted){
-        if(ActiveCharacters.Num() < 2){
+    if(!bStopSpawningHumans){
+        if(ActiveCharacters.Num() < 4){
             SpawnCharacterToStage();
         }
-    }else{
-        for (auto Iter(ActiveCharacters.CreateIterator()); Iter; Iter++) {
-            if(!(*Iter)->IsValidLowLevel()){
-                continue;
-            }else{
-                //UE_LOG(HarshLog, Warning, TEXT("IMP: Deactivate char with name: %s"), *(*Iter)->GetName());
-            }
-        }
     }
-    /*
-    for (auto Iter(characters.CreateIterator()); Iter; Iter++) {
-        if(!(*Iter)->IsValidLowLevel()){
-            continue;
-        }else{
-            UE_LOG(HarshLog, Warning, TEXT("1.2. Manager Begin Play %s"), *(*Iter)->GetName());
+    if(ActiveCharacters.Num() > 0){
+        TArray<AHumanCharacter*> tempArray;
+        AHumanCharacter* CurHuman = NULL;
+         for(int32 b = 0; b < ActiveCharacters.Num(); b++)
+         {
+             CurHuman = ActiveCharacters[b];
+             if(!CurHuman) continue;
+             if(!CurHuman->IsValidLowLevel()) continue;
+         
+             if(!CurHuman->bIsActive){
+                 tempArray.Push(CurHuman);
+             }
+         }
+        
+        while(tempArray.Num()>0){
+            CurHuman = tempArray.Pop();
+            ActiveCharacters.Remove(CurHuman);
+            InActiveCharacters.Push(CurHuman);
         }
+        
     }
-    */
+    
 }
 
 void ACharManager::SpawnCharacterToStage(){
     AHumanCharacter* var_tempChar = GetCharacter();
     if (var_tempChar != nullptr){
-        var_tempChar->ActivateAndReInitChar(Bird);
+        previousLocation = var_tempChar->ActivateAndReInitChar(BirdComponent, previousLocation);
         ActiveCharacters.Add(var_tempChar);
     }
 }
 
-void ACharManager::SetBird_01(class UStaticMeshComponent* BirdStaticMeshComponent){
-    this->Bird = BirdStaticMeshComponent;
-    
-}
-
 AHumanCharacter* ACharManager::GetCharacter(){
-    
     return InActiveCharacters.Num()>0 ? InActiveCharacters.Pop(): nullptr;
-    
 }
 
 void ACharManager::StartGame(){
-    bHasGameStarted = true;
     
+    bStopSpawningHumans = false;
+    previousLocation = FVector(-10.0f,0.0f,440.0f);
+    
+    AHumanCharacter* CurHuman = NULL;
+    for(int32 b = 0; b < ActiveCharacters.Num(); b++)
+    {
+        CurHuman = ActiveCharacters[b];
+        if(!CurHuman) continue;
+        if(!CurHuman->IsValidLowLevel()) continue;
+        //~~~~~~~~~~~~~~~~~~~~~~
+        CurHuman->DeactivateAndHideChar();
+        InActiveCharacters.Push(CurHuman);
+    }
+    
+    ActiveCharacters.Empty();
+    
+    UE_LOG(HarshLog, Warning, TEXT("1.4 Count in ACTIVE Array %d"), ActiveCharacters.Num());
+    UE_LOG(HarshLog, Warning, TEXT("1.5 Count in IN-ACTIVE Array %d"), InActiveCharacters.Num());
 }
 
 void ACharManager::StopGame(){
-    bHasGameStarted = false;
-    
+    bStopSpawningHumans = true;
 }
+
+void ACharManager::SetBulletAndBird(class UPaperSpriteComponent* Bullet, class UStaticMeshComponent* BirdStaticMeshComponent){
+    this->BulletComponent = Bullet;
+    this->BirdComponent = BirdStaticMeshComponent;
+}
+
+void ACharManager::SetBird_01(class UStaticMeshComponent *BirdStaticMeshComponent){
+    this->BirdComponent = BirdStaticMeshComponent;
+}
+
+void ACharManager::SetBullet(UPaperSpriteComponent *Bullet){
+    this->BulletComponent = Bullet;
+}
+
+
+

@@ -252,13 +252,193 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/CrappyBird/HumanCharacter.cpp"
-            timestampString = "480265950.244152"
+            timestampString = "481261962.029659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "AHumanCharacter::OnHitByBullet()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/CharManager.cpp"
+            timestampString = "481265716.494369"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "ACharManager::StartGame()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/CharManager.h"
+            timestampString = "481265431.369299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::_getUObject() const"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.473919"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::execSetBird_01(FFrame&amp;, void*)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.474295"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::execSetBullet(FFrame&amp;, void*)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.474566"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::execStartGame(FFrame&amp;, void*)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.474772"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACharManager::execStopGame(FFrame&amp;, void*)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.475145"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void InternalConstructor&lt;ACharManager&gt;(FObjectInitializer const&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.475435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UObject* InternalVTableHelperCtorCaller&lt;ACharManager&gt;(FVTableHelper&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.475698"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UObject* InternalVTableHelperCtorCaller&lt;ACharManager&gt;(FVTableHelper&amp;)"
+                  moduleName = "UE4Editor-CrappyBird.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Shared/UnrealEngine/4.10/Engine/Source/../../../../../Harshsingh/Documents/Git/Crappy_Bird/Source/CrappyBird/CharManager.h"
+                  timestampString = "481265431.475903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/HumanCharacter.h"
+            timestampString = "481268677.949754"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/HumanCharacter.h"
+            timestampString = "481275565.926026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

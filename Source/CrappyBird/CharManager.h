@@ -3,8 +3,10 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
+#include "PaperSpriteComponent.h"
 #include "HumanCharacter.h"
 #include "CharManager.generated.h"
+
 
 UCLASS()
 class CRAPPYBIRD_API ACharManager : public AActor
@@ -14,8 +16,13 @@ class CRAPPYBIRD_API ACharManager : public AActor
     //Private variable
     TArray<AHumanCharacter*> InActiveCharacters;
     TArray<AHumanCharacter*> ActiveCharacters;
-    bool bHasGameStarted;
-    class UStaticMeshComponent *Bird;
+    
+    bool bStopSpawningHumans;
+    
+    class UStaticMeshComponent *BirdComponent;
+    class UPaperSpriteComponent* BulletComponent;
+    
+    FVector previousLocation;
     
 public:	
 	// Sets default values for this actor's properties
@@ -34,6 +41,14 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "CharManager")
     void SetBird_01(class UStaticMeshComponent *Bird);
+    
+    
+    UFUNCTION(BlueprintCallable, Category = "CharManager")
+    void SetBullet(UPaperSpriteComponent* Bullet);
+    
+    UFUNCTION(BlueprintCallable, Category = "CharManager")
+    void SetBulletAndBird(class UPaperSpriteComponent* Bullet, class UStaticMeshComponent *BirdStaticMeshComponent);
+    
     
     UFUNCTION(BlueprintCallable, Category = "CharManager")
     void StartGame();

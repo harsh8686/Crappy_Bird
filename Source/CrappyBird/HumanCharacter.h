@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "PaperFlipbook.h"
 #include "PaperCharacter.h"
 #include "HumanCharacter.generated.h"
 
@@ -18,7 +19,6 @@ protected:
      *VARIABLES
      */
     
-    bool bIsActive;
     bool bMoveTowardsHell;
     bool bIsConcious;
     
@@ -27,8 +27,10 @@ protected:
     
     class UPaperFlipbook* MovingAnimation;
     class UPaperFlipbook* BulletHitAnimation;
-    class UStaticMeshComponent *Bird;
-    UStaticMeshComponent* MeshComp;
+    class UStaticMeshComponent* BirdComponent;
+    class UStaticMeshComponent* BirdStaticMeshComponent;
+    class UStaticMeshComponent* MeshComp;
+    
     
     /*
      *FUNCTIONS
@@ -37,24 +39,30 @@ protected:
     void OnHitByBird();
     bool IsCloserToBird();
     virtual void Tick(float DeltaSeconds) override;
-    void DeactivateAndHideChar();
+    
     
 public:
+    bool bIsActive;
+    
+    //FUNCTION
+    AHumanCharacter();
+    
     UFUNCTION()
     virtual void OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
                                 bool bFromSweep, const FHitResult& SweepResult);
-    AHumanCharacter();
+    
     void InitializeGameValues(const TCHAR* refMovingAni, const TCHAR* refBulletHitAni);
+    
     UFUNCTION(BlueprintCallable, Category = "Human")
     void SetBird(class UStaticMeshComponent *Bird);
-    void ActivateAndReInitChar(class UStaticMeshComponent* BirdStaticMeshComponent);
+    
+    FVector ActivateAndReInitChar(class UStaticMeshComponent* Bird, FVector& previousLoc);
+    void DeactivateAndHideChar();
     
     template <typename ObjClass>
     FORCEINLINE ObjClass* LoadObjFromPath(const FName& Path)
     {
         if(Path == NAME_None) return NULL;
-        //~
-        
         return Cast<ObjClass>(StaticLoadObject( ObjClass::StaticClass(), this,*Path.ToString()));
     }
     

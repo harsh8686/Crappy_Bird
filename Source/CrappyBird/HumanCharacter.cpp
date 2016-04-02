@@ -61,7 +61,7 @@ void AHumanCharacter::InitializeGameValues(const TCHAR* refMovingAni, const TCHA
     //set player yawn, pitch and roll
     SetActorRotation(FRotator(0.0f, 90.0f, 0.0f));
     
-    DeactivateAndHideChar();
+    this->DeactivateAndHideChar();
         
 }
 
@@ -72,7 +72,7 @@ void AHumanCharacter::DeactivateAndHideChar(){
     
 }
 
-void AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* BirdStaticMeshComponent){
+FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird, FVector& previousLoc){
     SetActorHiddenInGame(false);
     bIsActive = true;
     bIsConcious = false;
@@ -82,7 +82,8 @@ void AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* BirdStat
     int32 minIncrement = 800;
     float rand  = FMath::RandRange(minIncrement, maxIncrement);
     float ySpawn = 4000.0f + rand;
-    SetActorLocation(FVector(-10.0f,ySpawn,440.0f));
+    FVector loc(-10.0f,ySpawn,440.0f);
+    SetActorLocation(loc);
     
     //SET SPEED
     maxIncrement = -2000;
@@ -90,21 +91,23 @@ void AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* BirdStat
     rand  = FMath::RandRange(minIncrement, maxIncrement);
     speedMultiplyer = rand;
     
-    this->Bird = BirdStaticMeshComponent;
+    this->BirdStaticMeshComponent = Bird;
     
     OnHitByBullet();
+    
+    return loc;
 }
 
 void AHumanCharacter::Tick(float DeltaSeconds){
     Super::Tick(DeltaSeconds);
     
     //check is active
-    if(bIsActive && Bird){
+    if(bIsActive && BirdStaticMeshComponent){
         
         FVector ActorLocation = GetActorLocation();
         //1. check if bird is near
         if(!bIsConcious){
-            float bird_y = Bird->GetComponentLocation().Y;
+            float bird_y = BirdStaticMeshComponent->GetComponentLocation().Y;
             float char_y = ActorLocation.Y;
             float dy = char_y - bird_y;
             
@@ -142,7 +145,7 @@ void AHumanCharacter::Tick(float DeltaSeconds){
     
     if(MeshComp){
         //MeshComp
-        UE_LOG(HarshLog, Warning, TEXT("Mesh Comp Position: %s"), *MeshComp->GetComponentLocation().ToString());
+        //UE_LOG(HarshLog, Warning, TEXT("Mesh Comp Position: %s"), *MeshComp->GetComponentLocation().ToString());
     }
     
    
@@ -151,13 +154,14 @@ void AHumanCharacter::Tick(float DeltaSeconds){
 
 void AHumanCharacter::OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
                                      bool bFromSweep, const FHitResult& SweepResult){
+    
     //GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("In Beginoverlap function. CODE"));
-    if(Bird){
+    if(BirdStaticMeshComponent){
         TArray<UStaticMeshComponent*> Components;
         OtherActor->GetComponents<UStaticMeshComponent>(Components);
         for (int32 j=0; j<Components.Num(); j++){
             UStaticMeshComponent* var_01 = Components[j];
-            if(var_01 == Bird)
+            if(var_01 == BirdStaticMeshComponent)
                 OnHitByBird();
         }
     }
@@ -172,13 +176,7 @@ void AHumanCharacter::OnHitByBullet() {
     
     //trying with static mesh
     
-     UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
-    if(MeshShape){
-        UE_LOG(HarshLog, Warning, TEXT("MESH SETUP----------------------"));
-        
-    }
-    
-    UPaperSprite * shitSprite = LoadObjFromPath<UPaperSprite>(TEXT("/Game/Import/Textures/Shittteeeee/Splatt_01_Sprite.Splatt_01_Sprite"));
+    UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
     
     //meshcomp declaration
     MeshComp = NewObject<UStaticMeshComponent>(this);
@@ -202,18 +200,19 @@ void AHumanCharacter::OnHitByBullet() {
     refTrans.SetRotation(FQuat(FRotator(0.0f, -90.0f, 0.0f)));
     MeshComp->SetRelativeTransform(refTrans);
     
-    //other stuffs
-    //MeshComp->AttachTo(this->GetRootComponent(),FName(TEXT("WeaponPoint")), EAttachLocation::KeepRelativeOffset);
-//    shitSprite
+    //Attach to HumanCharacter Component
+    MeshComp->AttachTo(this->GetRootComponent(),FName(TEXT("WeaponPoint")), EAttachLocation::KeepRelativeOffset);
     
+    //Register component
     MeshComp->RegisterComponent();
     FVector socketLoaction = GetRootComponent()->GetSocketLocation("WeaponPoint");
     UE_LOG(HarshLog, Warning, TEXT("Socket Location [Weapon Point]: %s"), *socketLoaction.ToString());
     
 }
 
-void AHumanCharacter::SetBird(class UStaticMeshComponent* BirdStaticMeshComponent){
-    this->Bird = BirdStaticMeshComponent;
+void AHumanCharacter::SetBird(UStaticMeshComponent *Bird){
     
 }
+
+
 
