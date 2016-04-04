@@ -47,7 +47,7 @@ public:
     void SetBullet(UPaperSpriteComponent* Bullet);
     
     UFUNCTION(BlueprintCallable, Category = "CharManager")
-    void SetBulletAndBird(class UPaperSpriteComponent* Bullet, class UStaticMeshComponent *BirdStaticMeshComponent);
+    void SetBulletAndBird(class UPaperSpriteComponent* Bullet, class UStaticMeshComponent *Bird);
     
     
     UFUNCTION(BlueprintCallable, Category = "CharManager")

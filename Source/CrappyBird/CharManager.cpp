@@ -83,7 +83,7 @@ void ACharManager::Tick( float DeltaTime )
 void ACharManager::SpawnCharacterToStage(){
     AHumanCharacter* var_tempChar = GetCharacter();
     if (var_tempChar != nullptr){
-        previousLocation = var_tempChar->ActivateAndReInitChar(BirdComponent, previousLocation);
+        previousLocation = var_tempChar->ActivateAndReInitChar(BirdComponent, BulletComponent, previousLocation);
         ActiveCharacters.Add(var_tempChar);
     }
 }
@@ -118,9 +118,9 @@ void ACharManager::StopGame(){
     bStopSpawningHumans = true;
 }
 
-void ACharManager::SetBulletAndBird(class UPaperSpriteComponent* Bullet, class UStaticMeshComponent* BirdStaticMeshComponent){
+void ACharManager::SetBulletAndBird(class UPaperSpriteComponent* Bullet, class UStaticMeshComponent* Bird){
     this->BulletComponent = Bullet;
-    this->BirdComponent = BirdStaticMeshComponent;
+    this->BirdComponent = Bird;
 }
 
 void ACharManager::SetBird_01(class UStaticMeshComponent *BirdStaticMeshComponent){

@@ -27,8 +27,10 @@ protected:
     
     class UPaperFlipbook* MovingAnimation;
     class UPaperFlipbook* BulletHitAnimation;
+    
+    class UPaperSpriteComponent* BulletComponent;
+    
     class UStaticMeshComponent* BirdComponent;
-    class UStaticMeshComponent* BirdStaticMeshComponent;
     class UStaticMeshComponent* MeshComp;
     
     
@@ -53,10 +55,7 @@ public:
     
     void InitializeGameValues(const TCHAR* refMovingAni, const TCHAR* refBulletHitAni);
     
-    UFUNCTION(BlueprintCallable, Category = "Human")
-    void SetBird(class UStaticMeshComponent *Bird);
-    
-    FVector ActivateAndReInitChar(class UStaticMeshComponent* Bird, FVector& previousLoc);
+    FVector ActivateAndReInitChar(class UStaticMeshComponent* Bird, class UPaperSpriteComponent* Bullet, FVector& previousLoc);
     void DeactivateAndHideChar();
     
     template <typename ObjClass>

@@ -3,6 +3,7 @@
 #include "CrappyBird.h"
 #include "HumanCharacter.h"
 #include "PaperFlipbook.h"
+#include "PaperSpriteComponent.h"
 #include "PaperFlipbookComponent.h"
 
 AHumanCharacter::AHumanCharacter(){
@@ -69,10 +70,15 @@ void AHumanCharacter::DeactivateAndHideChar(){
     bMoveTowardsHell = false;
     bIsActive = false;
     SetActorHiddenInGame(true);
-    
+    if(MeshComp)
+        MeshComp->DestroyComponent();
 }
 
-FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird, FVector& previousLoc){
+FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird, class UPaperSpriteComponent* Bullet, FVector& previousLoc){
+    
+    this->BirdComponent = Bird;
+    this->BulletComponent = Bullet;
+    
     SetActorHiddenInGame(false);
     bIsActive = true;
     bIsConcious = false;
@@ -91,9 +97,7 @@ FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird,
     rand  = FMath::RandRange(minIncrement, maxIncrement);
     speedMultiplyer = rand;
     
-    this->BirdStaticMeshComponent = Bird;
-    
-    OnHitByBullet();
+    //OnHitByBullet();
     
     return loc;
 }
@@ -102,12 +106,12 @@ void AHumanCharacter::Tick(float DeltaSeconds){
     Super::Tick(DeltaSeconds);
     
     //check is active
-    if(bIsActive && BirdStaticMeshComponent){
+    if(bIsActive && BirdComponent){
         
         FVector ActorLocation = GetActorLocation();
         //1. check if bird is near
         if(!bIsConcious){
-            float bird_y = BirdStaticMeshComponent->GetComponentLocation().Y;
+            float bird_y = BirdComponent->GetComponentLocation().Y;
             float char_y = ActorLocation.Y;
             float dy = char_y - bird_y;
             
@@ -155,15 +159,12 @@ void AHumanCharacter::Tick(float DeltaSeconds){
 void AHumanCharacter::OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
                                      bool bFromSweep, const FHitResult& SweepResult){
     
-    //GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("In Beginoverlap function. CODE"));
-    if(BirdStaticMeshComponent){
-        TArray<UStaticMeshComponent*> Components;
-        OtherActor->GetComponents<UStaticMeshComponent>(Components);
-        for (int32 j=0; j<Components.Num(); j++){
-            UStaticMeshComponent* var_01 = Components[j];
-            if(var_01 == BirdStaticMeshComponent)
-                OnHitByBird();
-        }
+    if(OtherComp == BulletComponent){
+         OnHitByBullet();
+    }
+    
+    if(OtherComp == BirdComponent){
+        OnHitByBird();
     }
     
 }
@@ -175,42 +176,39 @@ void AHumanCharacter::OnHitByBird(){
 void AHumanCharacter::OnHitByBullet() {
     
     //trying with static mesh
+    if(!MeshComp){
+        UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
     
-    UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
+        //meshcomp declaration
+        MeshComp = NewObject<UStaticMeshComponent>(this);
+        MeshComp->SetStaticMesh(MeshShape);
     
-    //meshcomp declaration
-    MeshComp = NewObject<UStaticMeshComponent>(this);
-    MeshComp->SetStaticMesh(MeshShape);
-    
-    //Setup material
-    const TCHAR* refMaterial = TEXT("/Game/Meshes/SM_Player_01.SM_Player_01");
-    UMaterial * mat_01 =LoadObjFromPath<UMaterial>(refMaterial);
-    UMaterialInstanceDynamic* myDynamicMaterial = UMaterialInstanceDynamic::Create(mat_01, this);
-    //MeshComp->SetMaterial(0, myDynamicMaterial);
+        //Setup material
+        const TCHAR* refMaterial = TEXT("/Game/Meshes/SM_Player_01.SM_Player_01");
+        UMaterial * mat_01 =LoadObjFromPath<UMaterial>(refMaterial);
+        UMaterialInstanceDynamic* myDynamicMaterial = UMaterialInstanceDynamic::Create(mat_01, this);
+        //MeshComp->SetMaterial(0, myDynamicMaterial);
     
     
-    //setup collision
-    MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-    MeshComp->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
-    MeshComp->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+        //setup collision
+        MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        MeshComp->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
+        MeshComp->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
     
-    //Setup location
-    FTransform refTrans = MeshComp->GetRelativeTransform();
-    refTrans.SetLocation(FVector(0.0f,0.0f,400.0f));
-    refTrans.SetRotation(FQuat(FRotator(0.0f, -90.0f, 0.0f)));
-    MeshComp->SetRelativeTransform(refTrans);
+        //Setup location
+        FTransform refTrans = MeshComp->GetRelativeTransform();
+        refTrans.SetLocation(FVector(0.0f,0.0f,400.0f));
+        refTrans.SetRotation(FQuat(FRotator(0.0f, -90.0f, 0.0f)));
+        MeshComp->SetRelativeTransform(refTrans);
     
-    //Attach to HumanCharacter Component
-    MeshComp->AttachTo(this->GetRootComponent(),FName(TEXT("WeaponPoint")), EAttachLocation::KeepRelativeOffset);
+        //Attach to HumanCharacter Component
+        MeshComp->AttachTo(this->GetRootComponent(),FName(TEXT("WeaponPoint")), EAttachLocation::KeepRelativeOffset);
     
-    //Register component
-    MeshComp->RegisterComponent();
-    FVector socketLoaction = GetRootComponent()->GetSocketLocation("WeaponPoint");
-    UE_LOG(HarshLog, Warning, TEXT("Socket Location [Weapon Point]: %s"), *socketLoaction.ToString());
-    
-}
-
-void AHumanCharacter::SetBird(UStaticMeshComponent *Bird){
+        //Register component
+        MeshComp->RegisterComponent();
+        FVector socketLoaction = GetRootComponent()->GetSocketLocation("WeaponPoint");
+        UE_LOG(HarshLog, Warning, TEXT("Socket Location [Weapon Point]: %s"), *socketLoaction.ToString());
+    }
     
 }
 
