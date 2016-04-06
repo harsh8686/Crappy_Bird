@@ -59,8 +59,7 @@ void AHumanCharacter::InitializeGameValues(const TCHAR* refMovingAni, const TCHA
     //set physics info
     GetCharacterMovement()->GravityScale = 0.0f;
 
-    //set player yawn, pitch and roll
-    SetActorRotation(FRotator(0.0f, 90.0f, 0.0f));
+    
     
     this->DeactivateAndHideChar();
         
@@ -83,12 +82,15 @@ FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird,
     bIsActive = true;
     bIsConcious = false;
     
+    UE_LOG(HarshLog, Warning, TEXT("Previous loc: %s"), *previousLoc.ToString());
+    
     //SET LOCATION
     int32 maxIncrement = 2000;
-    int32 minIncrement = 800;
+    int32 minIncrement = 1000;
     float rand  = FMath::RandRange(minIncrement, maxIncrement);
-    float ySpawn = 4000.0f + rand;
-    FVector loc(-10.0f,ySpawn,440.0f);
+    float ySpawn = previousLoc.Y + rand;
+    FVector loc(previousLoc.X, ySpawn, previousLoc.Z);
+    //FVector loc(-10.0f,ySpawn,440.0f);
     SetActorLocation(loc);
     
     //SET SPEED
@@ -97,8 +99,11 @@ FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird,
     rand  = FMath::RandRange(minIncrement, maxIncrement);
     speedMultiplyer = rand;
     
-    //OnHitByBullet();
+    UE_LOG(HarshLog, Warning, TEXT("New loc: %s"), *loc.ToString());
+    UE_LOG(HarshLog, Warning, TEXT("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"));
     
+    //SET ROTATION
+    SetActorRotation(FRotator(0.0f, 90.0f, 0.0f));
     return loc;
 }
 

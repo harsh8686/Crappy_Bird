@@ -42,7 +42,7 @@ void ACharManager::BeginPlay()
         //InActiveCharacters.Add(char_04);
         
         ActiveCharacters.Add(char_04);
-        
+        bStopSpawningHumans = true;
     }
 	
 }
@@ -109,6 +109,9 @@ void ACharManager::StartGame(){
     }
     
     ActiveCharacters.Empty();
+    
+    previousLocation = FVector(-10.0f,4000.0f,440.0f);
+    //FVector loc(-10.0f,ySpawn,440.0f);
     
     UE_LOG(HarshLog, Warning, TEXT("1.4 Count in ACTIVE Array %d"), ActiveCharacters.Num());
     UE_LOG(HarshLog, Warning, TEXT("1.5 Count in IN-ACTIVE Array %d"), InActiveCharacters.Num());
