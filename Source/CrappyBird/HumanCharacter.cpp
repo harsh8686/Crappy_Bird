@@ -104,6 +104,8 @@ FVector AHumanCharacter::ActivateAndReInitChar(class UStaticMeshComponent* Bird,
     
     //SET ROTATION
     SetActorRotation(FRotator(0.0f, 90.0f, 0.0f));
+    OnHitByBullet();
+    
     return loc;
 }
 
@@ -151,12 +153,6 @@ void AHumanCharacter::Tick(float DeltaSeconds){
         SetActorLocation(ActorLocation);
         
     }
-    
-    if(MeshComp){
-        //MeshComp
-        //UE_LOG(HarshLog, Warning, TEXT("Mesh Comp Position: %s"), *MeshComp->GetComponentLocation().ToString());
-    }
-    
    
 
 }
@@ -182,14 +178,16 @@ void AHumanCharacter::OnHitByBullet() {
     
     //trying with static mesh
     if(!MeshComp){
-        UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
+        //UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Meshes/SM_Btn_Achievements.SM_Btn_Achievements"));
+        UStaticMesh *MeshShape = LoadObjFromPath<UStaticMesh>(TEXT("/Game/Import/Meshes/Shiittteeee/SM_Shitteeee.SM_Shitteeee"));
     
         //meshcomp declaration
         MeshComp = NewObject<UStaticMeshComponent>(this);
         MeshComp->SetStaticMesh(MeshShape);
     
         //Setup material
-        const TCHAR* refMaterial = TEXT("/Game/Meshes/SM_Player_01.SM_Player_01");
+        //const TCHAR* refMaterial = TEXT("/Game/Meshes/SM_Player_01.SM_Player_01");
+        const TCHAR* refMaterial = TEXT("/Game/Import/Materials/Shiittteeee/Shitteeee.Shitteeee");
         UMaterial * mat_01 =LoadObjFromPath<UMaterial>(refMaterial);
         UMaterialInstanceDynamic* myDynamicMaterial = UMaterialInstanceDynamic::Create(mat_01, this);
         //MeshComp->SetMaterial(0, myDynamicMaterial);
@@ -202,8 +200,8 @@ void AHumanCharacter::OnHitByBullet() {
     
         //Setup location
         FTransform refTrans = MeshComp->GetRelativeTransform();
-        refTrans.SetLocation(FVector(0.0f,0.0f,400.0f));
-        refTrans.SetRotation(FQuat(FRotator(0.0f, -90.0f, 0.0f)));
+        //refTrans.SetLocation(FVector(0.0f,0.0f,400.0f));
+        //refTrans.SetRotation(FQuat(FRotator(0.0f, 0.0f, 0.0f)));
         MeshComp->SetRelativeTransform(refTrans);
     
         //Attach to HumanCharacter Component
@@ -218,4 +216,6 @@ void AHumanCharacter::OnHitByBullet() {
 }
 
 
-
+//x: -700.0 cm
+//y: 768.0;
+//z: 1024 //1536.0

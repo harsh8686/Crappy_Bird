@@ -20,26 +20,77 @@ void ACharManager::BeginPlay()
     UE_LOG(HarshLog, Warning, TEXT("1.1. Manager Begin Play"));    
     if(GetWorld()){
         AHumanCharacter* char_01 = GetWorld()->SpawnActor<AHumanCharacter>();
-        char_01->InitializeGameValues(TEXT("/Game/Import/Flipbook/Bill_C.Bill_C"),
-                                      TEXT("/Game/Import/Flipbook/Dubya.Dubya"));
-        
-        AHumanCharacter* char_02 = GetWorld()->SpawnActor<AHumanCharacter>();
-        char_02->InitializeGameValues(TEXT("/Game/Import/Flipbook/Hill.Hill"),
-                                      TEXT("/Game/Import/Flipbook/Jeb.Jeb"));
-        
-        AHumanCharacter* char_03 = GetWorld()->SpawnActor<AHumanCharacter>();
-        char_03->InitializeGameValues(TEXT("/Game/Import/Flipbook/John_K.John_K"),
-                                      TEXT("/Game/Import/Flipbook/Nope.Nope"));
-        
-        AHumanCharacter* char_04 = GetWorld()->SpawnActor<AHumanCharacter>();
-        char_04->InitializeGameValues(TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"),
+        char_01->InitializeGameValues(TEXT("/Game/Import/Flipbook/Albright.Albright"),
                                       TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
         
+        AHumanCharacter* char_02 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_02->InitializeGameValues(TEXT("/Game/Import/Flipbook/Beck.Beck"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_03 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_03->InitializeGameValues(TEXT("/Game/Import/Flipbook/Bernie.Bernie"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_04 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_04->InitializeGameValues(TEXT("/Game/Import/Flipbook/Bill_C.Bill_C"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_05 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_05->InitializeGameValues(TEXT("/Game/Import/Flipbook/Cheney.Cheney"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_06 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_06->InitializeGameValues(TEXT("/Game/Import/Flipbook/Dubya.Dubya"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_07 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_07->InitializeGameValues(TEXT("/Game/Import/Flipbook/Hill.Hill"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_08 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_08->InitializeGameValues(TEXT("/Game/Import/Flipbook/Jeb.Jeb"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_09 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_09->InitializeGameValues(TEXT("/Game/Import/Flipbook/John_K.John_K"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_10 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_10->InitializeGameValues(TEXT("/Game/Import/Flipbook/O_Reilly.O_Reilly"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        AHumanCharacter* char_11 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_11->InitializeGameValues(TEXT("/Game/Import/Flipbook/Reagan.Reagan"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_12 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_12->InitializeGameValues(TEXT("/Game/Import/Flipbook/Sarah.Sarah"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_13 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_13->InitializeGameValues(TEXT("/Game/Import/Flipbook/Stump.Stump"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        AHumanCharacter* char_14 = GetWorld()->SpawnActor<AHumanCharacter>();
+        char_14->InitializeGameValues(TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"),
+                                      TEXT("/Game/Import/Flipbook/Ted_C.Ted_C"));
+        
+        
+
         
         InActiveCharacters.Add(char_01);
         InActiveCharacters.Add(char_02);
         InActiveCharacters.Add(char_03);
         //InActiveCharacters.Add(char_04);
+        InActiveCharacters.Add(char_05);
+        InActiveCharacters.Add(char_06);
+        InActiveCharacters.Add(char_07);
+        InActiveCharacters.Add(char_08);
+        InActiveCharacters.Add(char_09);
+        InActiveCharacters.Add(char_10);
+        InActiveCharacters.Add(char_11);
+        InActiveCharacters.Add(char_12);
+        InActiveCharacters.Add(char_13);
+        InActiveCharacters.Add(char_14);
         
         ActiveCharacters.Add(char_04);
         bStopSpawningHumans = true;
@@ -52,7 +103,7 @@ void ACharManager::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
     if(!bStopSpawningHumans){
-        if(ActiveCharacters.Num() < 4){
+        if(ActiveCharacters.Num() < 14){
             SpawnCharacterToStage();
         }
     }
