@@ -252,11 +252,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/CrappyBird/HumanCharacter.cpp"
-            timestampString = "481646937.686792"
+            timestampString = "482339758.329404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "AHumanCharacter::OnHitByBullet()"
             landmarkType = "5">
          </BreakpointContent>
@@ -268,11 +268,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/CrappyBird/CharManager.cpp"
-            timestampString = "481646456.458475"
+            timestampString = "482339196.109575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "ACharManager::StartGame()"
             landmarkType = "5">
          </BreakpointContent>
@@ -448,11 +448,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/CrappyBird/HumanCharacter.cpp"
-            timestampString = "481646937.686792"
+            timestampString = "482339758.329404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "AHumanCharacter::OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult&amp; SweepResult)"
             landmarkType = "5">
          </BreakpointContent>
@@ -464,11 +464,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/CrappyBird/HumanCharacter.cpp"
-            timestampString = "481646937.686792"
+            timestampString = "482339758.329404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "AHumanCharacter::OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult&amp; SweepResult)"
             landmarkType = "5">
          </BreakpointContent>
@@ -480,12 +480,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/CrappyBird/HumanCharacter.cpp"
-            timestampString = "481646937.686792"
+            timestampString = "482339758.329404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "AHumanCharacter::OnBeginOverlap(class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult&amp; SweepResult)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/CrappyBird/HumanCharacter.cpp"
+            timestampString = "482422810.568621"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "AHumanCharacter::OnHitByBullet()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
